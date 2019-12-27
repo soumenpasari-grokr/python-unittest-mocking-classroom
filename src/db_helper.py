@@ -22,6 +22,14 @@ class DbHelper:
         self.cursor.execute(query)
         result = self.cursor.fetchone()
         return result[0]
+    
+    def max_salary_is_greater_than_min(self):
+        max_salary = self.get_maximum_salary()
+        min_salary = self.get_minimum_salary()
+        if max_salary > min_salary:
+            return True
+        else:
+            return False
 
 if __name__ == "__main__":
     db_helper = DbHelper()
